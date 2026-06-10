@@ -1,0 +1,72 @@
+@use 'styles/colors' as colors;
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 32px;
+
+    border-radius: 16px;
+
+    background-color: colors.$white;
+
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    .title {
+        font-style: normal;
+        font-weight: 800;
+
+        font-size: 40px;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100%;
+        max-width: 50px;
+        height: auto;
+    }
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px;
+
+    border: 1px solid colors.$grey;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+        border-color: colors.$blue;
+    }
+}

@@ -1,0 +1,13 @@
+@use 'styles/colors' as colors;
+
+.input {
+    border: 1px solid colors.$grey;
+    border-radius: 5px;
+
+    padding: 13px;
+
+    &:focus {
+        outline: none;
+        border-color: colors.$blue;
+    }
+}

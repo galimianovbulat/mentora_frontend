@@ -1,5 +1,22 @@
+import {
+    BrowserRouter,
+    Route,
+    Routes,
+} from 'react-router-dom';
+
+import SignIn from 'pages/SignIn';
+
 function App() {
-    return <main></main>;
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/login"
+                    element={<SignIn />}
+                />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

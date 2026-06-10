@@ -6,6 +6,7 @@ import classNames from 'classnames';
 const StringInput: FC<IProps> = (props) => {
     return (
         <input
+            {...props}
             type={props.type}
             className={classNames(
                 styles.input,

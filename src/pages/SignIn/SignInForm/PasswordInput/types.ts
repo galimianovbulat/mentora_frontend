@@ -1,3 +1,6 @@
-export interface IProps {
+import type { InputHTMLAttributes } from 'react';
+
+export interface IProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
+    value: string;
 }

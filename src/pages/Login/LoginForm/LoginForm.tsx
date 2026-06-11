@@ -2,6 +2,7 @@ import mentoraLogo from 'assets/mentora-logo.png';
 import StringInput from 'components/StringInput';
 import type { FC } from 'react';
 
+import { AUTH_ERROR_MESSAGES } from './constants';
 import styles from './LoginForm.module.scss';
 import PasswordInput from './PasswordInput';
 import type { IProps } from './types';
@@ -12,7 +13,7 @@ const LoginForm: FC<IProps> = (props) => {
             className={styles.form}
             onSubmit={(event) => {
                 event.preventDefault();
-                props.onSubmit();
+                void props.onSubmit();
             }}
         >
             <div className={styles.brand}>
@@ -38,7 +39,6 @@ const LoginForm: FC<IProps> = (props) => {
                     className={styles.input}
                 />
             </div>
-
             <div
                 className={styles.div}
             >
@@ -50,8 +50,12 @@ const LoginForm: FC<IProps> = (props) => {
                         props.onChangePassword(event.target.value);
                     }}
                 />
+                {props.error !== '' && (
+                    <div className={styles.error}>
+                        {AUTH_ERROR_MESSAGES[props.error] ?? 'Ошибка авторизации'}
+                    </div>
+                )}                
             </div>
-
             <button
                 type='submit'
                 className={styles.button}

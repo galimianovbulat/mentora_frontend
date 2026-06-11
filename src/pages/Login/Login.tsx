@@ -1,13 +1,17 @@
+import { login } from 'entities/user/fetches';
+import { saveTokens } from 'helpers/tokens';
 import { useState } from 'react';
 
 import styles from './Login.module.scss';
 import LoginForm from './LoginForm';
-
+ 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
+        setError('');
 
         if (username.trim() === '') {
             return;
@@ -17,10 +21,18 @@ const Login = () => {
             return;
         }
 
-        console.log({
-            username,
-            password,
-        });
+        try {
+            const tokens = await login({ username, password });
+            saveTokens(tokens);
+        } catch (error) {
+            if (error instanceof Error) {
+                setError(error.message);
+
+                return;
+            }
+
+            setError('Неизвестная ошибка');
+        }
     };
 
     return (
@@ -28,6 +40,7 @@ const Login = () => {
             <LoginForm
                 username={username}
                 password={password}
+                error={error}
                 onChangeUsername={setUsername}
                 onChangePassword={setPassword}
                 onSubmit={onSubmit}

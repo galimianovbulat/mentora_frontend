@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import styles from './Login.module.scss';
 import LoginForm from './LoginForm';
- 
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -46,7 +46,7 @@ const Login = () => {
                 onSubmit={onSubmit}
             ></LoginForm>
         </div>
-    )
-}
+    );
+};
 
 export default Login;

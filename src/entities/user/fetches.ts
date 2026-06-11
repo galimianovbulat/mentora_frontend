@@ -15,14 +15,12 @@ export async function login(body: ILoginParams): Promise<ILoginResponse> {
     });
 
     if (!response.ok) {
-        const error = await response.json() as ILoginErrorResponse;
+        const error = (await response.json()) as ILoginErrorResponse;
 
-        throw new Error(
-            error.message ?? error.error ?? 'Ошибка авторизации',
-        );
+        throw new Error(error.message ?? error.error ?? 'Ошибка авторизации');
     }
 
-    const data = await response.json() as ILoginResponse;
+    const data = (await response.json()) as ILoginResponse;
 
     return data;
 }

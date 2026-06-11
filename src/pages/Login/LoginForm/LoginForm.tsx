@@ -9,7 +9,7 @@ import type { IProps } from './types';
 
 const LoginForm: FC<IProps> = (props) => {
     return (
-        <form 
+        <form
             className={styles.form}
             onSubmit={(event) => {
                 event.preventDefault();
@@ -17,19 +17,11 @@ const LoginForm: FC<IProps> = (props) => {
             }}
         >
             <div className={styles.brand}>
-                <img
-                    src={mentoraLogo}
-                    alt='Mentora'
-                    className={styles.logo}
-                />
+                <img src={mentoraLogo} alt="Mentora" className={styles.logo} />
 
-                <h1 className={styles.title}>
-                    Mentora
-                </h1>
+                <h1 className={styles.title}>Mentora</h1>
             </div>
-            <div
-                className={styles.div}
-            > 
+            <div className={styles.div}>
                 Имя пользователя
                 <StringInput
                     value={props.username}
@@ -39,9 +31,7 @@ const LoginForm: FC<IProps> = (props) => {
                     className={styles.input}
                 />
             </div>
-            <div
-                className={styles.div}
-            >
+            <div className={styles.div}>
                 Пароль
                 <PasswordInput
                     value={props.password}
@@ -54,16 +44,13 @@ const LoginForm: FC<IProps> = (props) => {
                     <div className={styles.error}>
                         {AUTH_ERROR_MESSAGES[props.error] ?? 'Ошибка авторизации'}
                     </div>
-                )}                
+                )}
             </div>
-            <button
-                type='submit'
-                className={styles.button}
-            >
+            <button type="submit" className={styles.button}>
                 Войти
             </button>
         </form>
-    )
-}
+    );
+};
 
 export default LoginForm;

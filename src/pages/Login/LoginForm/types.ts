@@ -1,4 +1,4 @@
-export interface IProps { 
+export interface IProps {
     username: string;
     password: string;
     error: string;

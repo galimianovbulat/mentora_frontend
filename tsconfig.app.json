@@ -10,7 +10,7 @@
         "ignoreDeprecations": "6.0",
         "paths": {
             "pages/*": ["pages/*"],
-            "entities/*": ["entities/*"],
+            "entities/*": ["entities/*"]
         },
 
         /* Bundler mode */

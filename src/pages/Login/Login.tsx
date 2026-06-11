@@ -1,8 +1,9 @@
-import SignInForm from './SignInForm';
-import styles from './SignIn.module.scss';
 import { useState } from 'react';
 
-const SignIn = () => {
+import styles from './Login.module.scss';
+import LoginForm from './LoginForm';
+
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,15 +25,15 @@ const SignIn = () => {
 
     return (
         <div className={styles.signIn}>
-            <SignInForm
+            <LoginForm
                 username={username}
                 password={password}
                 onChangeUsername={setUsername}
                 onChangePassword={setPassword}
                 onSubmit={onSubmit}
-            ></SignInForm>
+            ></LoginForm>
         </div>
     )
 }
 
-export default SignIn;
+export default Login;

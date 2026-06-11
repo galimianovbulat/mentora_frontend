@@ -1,11 +1,12 @@
-import styles from './SignInForm.module.scss';
-import StringInput from 'components/StringInput';
 import mentoraLogo from 'assets/mentora-logo.png';
-import PasswordInput from './PasswordInput';
+import StringInput from 'components/StringInput';
 import type { FC } from 'react';
+
+import styles from './LoginForm.module.scss';
+import PasswordInput from './PasswordInput';
 import type { IProps } from './types';
 
-const SignInForm: FC<IProps> = (props) => {
+const LoginForm: FC<IProps> = (props) => {
     return (
         <form 
             className={styles.form}
@@ -61,4 +62,4 @@ const SignInForm: FC<IProps> = (props) => {
     )
 }
 
-export default SignInForm;
+export default LoginForm;

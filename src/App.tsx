@@ -1,10 +1,9 @@
+import Login from 'pages/Login';
 import {
     BrowserRouter,
     Route,
     Routes,
 } from 'react-router-dom';
-
-import SignIn from 'pages/SignIn';
 
 function App() {
     return (
@@ -12,7 +11,7 @@ function App() {
             <Routes>
                 <Route
                     path="/login"
-                    element={<SignIn />}
+                    element={<Login />}
                 />
             </Routes>
         </BrowserRouter>

@@ -1,3 +1,5 @@
+import type { UserRole } from './constants';
+
 export interface ILoginParams {
     username: string;
     password: string;
@@ -11,4 +13,9 @@ export interface ILoginResponse {
 export interface ILoginErrorResponse {
     message?: string;
     error?: string;
+}
+
+export interface IPayload {
+    id: number;
+    role: UserRole;
 }

@@ -1,6 +1,6 @@
 import config from 'config';
 
-import type { ILoginErrorResponse, ILoginParams, ILoginResponse } from './types';
+import type { ILoginErrorResponse, ILoginParams, ILoginResponse, IPayload } from './types';
 
 export async function login(body: ILoginParams): Promise<ILoginResponse> {
     const response = await fetch(`${config.URL}/login`, {
@@ -23,4 +23,21 @@ export async function login(body: ILoginParams): Promise<ILoginResponse> {
     const data = (await response.json()) as ILoginResponse;
 
     return data;
+}
+
+export async function getMe(): Promise<IPayload> {
+    const accessToken = localStorage.getItem('accessToken') ?? '';
+
+    const response = await fetch(`${config.URL}/user/me`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Не удалось получить пользователя');
+    }
+
+    return await response.json() as IPayload;
 }

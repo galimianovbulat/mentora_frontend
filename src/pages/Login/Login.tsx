@@ -1,4 +1,4 @@
-import { login } from 'entities/user/fetches';
+import { getMe,login } from 'entities/user/fetches';
 import { saveTokens } from 'helpers/tokens';
 import { useState } from 'react';
 
@@ -24,6 +24,18 @@ const Login = () => {
         try {
             const tokens = await login({ username, password });
             saveTokens(tokens);
+        } catch (error) {
+            if (error instanceof Error) {
+                setError(error.message);
+
+                return;
+            }
+
+            setError('Неизвестная ошибка');
+        }
+
+        try {
+            await getMe();
         } catch (error) {
             if (error instanceof Error) {
                 setError(error.message);

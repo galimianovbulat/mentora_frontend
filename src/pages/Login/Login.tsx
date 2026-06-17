@@ -26,7 +26,7 @@ const Login = () => {
             saveTokens(tokens);
         } catch (error) {
             if (error instanceof Error) {
-                setError(error.message);
+                setError('Ошибка авторизации');
 
                 return;
             }
@@ -34,17 +34,7 @@ const Login = () => {
             setError('Неизвестная ошибка');
         }
 
-        try {
-            await getMe();
-        } catch (error) {
-            if (error instanceof Error) {
-                setError(error.message);
-
-                return;
-            }
-
-            setError('Неизвестная ошибка');
-        }
+        await getMe();
     };
 
     return (

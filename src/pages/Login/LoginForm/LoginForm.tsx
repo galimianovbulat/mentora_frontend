@@ -2,7 +2,6 @@ import mentoraLogo from 'assets/mentora-logo.png';
 import StringInput from 'components/StringInput';
 import type { FC } from 'react';
 
-import { AUTH_ERROR_MESSAGES } from './constants';
 import styles from './LoginForm.module.scss';
 import PasswordInput from './PasswordInput';
 import type { IProps } from './types';
@@ -42,7 +41,7 @@ const LoginForm: FC<IProps> = (props) => {
                 />
                 {props.error !== '' && (
                     <div className={styles.error}>
-                        {AUTH_ERROR_MESSAGES[props.error] ?? 'Ошибка авторизации'}
+                        {props.error}
                     </div>
                 )}
             </div>

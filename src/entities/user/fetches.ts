@@ -24,20 +24,3 @@ export async function login(body: ILoginParams): Promise<ILoginResponse> {
 
     return data;
 }
-
-export async function getMe(): Promise<IPayload> {
-    const accessToken = localStorage.getItem('accessToken') ?? '';
-
-    const response = await fetch(`${config.URL}/user/me`, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
-    });
-
-    if (!response.ok) {
-        throw new Error('Не удалось получить пользователя');
-    }
-
-    return await response.json() as IPayload;
-}

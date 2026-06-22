@@ -1,4 +1,4 @@
-import { getMe,login } from 'entities/user/fetches';
+import { login } from 'entities/user/fetches';
 import { saveTokens } from 'helpers/tokens';
 import { useState } from 'react';
 
@@ -33,8 +33,6 @@ const Login = () => {
 
             setError('Неизвестная ошибка');
         }
-
-        await getMe();
     };
 
     return (
